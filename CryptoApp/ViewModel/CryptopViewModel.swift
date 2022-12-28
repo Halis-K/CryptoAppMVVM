@@ -7,9 +7,9 @@
 
 import Foundation
 
-// indirdigimiz veriyi(service) isleyip direkt View'da hazir hale getirmek icin ViewModel'da kullaniyoruz.
-//Prensipler geregi her bir View'un ViewModel'i olmak zorunda.
-//ViewModel'lari sabitlemek ve basitlestirmek prensibiyle hareket ediyoruz.
+// We use the ViewModel to process the data we downloaded (from the service) and get it ready for the View directly
+//According to the principles, each View must have a ViewModel
+//We follow the principle of fixing and simplifying ViewModels
 
 struct CryptoListViewModel {
     //cryptoCurrency i liste halinde tutabiliriz.
@@ -20,7 +20,7 @@ struct CryptoListViewModel {
         return self.cryptoCurrencyList.count
     }
     
-    func cryptoAtIndex(_ index: Int) -> CryptoViewModel { //CryptoViewModel ile birbirine bagliyoruz
+    func cryptoAtIndex(_ index: Int) -> CryptoViewModel { //We connect with CryptoViewModel
         let crypto = self.cryptoCurrencyList[index]
         return CryptoViewModel(cryptoCurrency: crypto)
     }
@@ -28,7 +28,7 @@ struct CryptoListViewModel {
 }
 
 struct CryptoViewModel {
-    //tekil olan icin ayri ViewModel olusturuyoruz
+    //We create a separate ViewModel for the unique one
     let cryptoCurrency : CryptoCurrency
     
     var name : String {

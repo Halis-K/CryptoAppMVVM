@@ -31,8 +31,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if let cryptoes = cryptoes {
                 self.cryptoListViewModel = CryptoListViewModel(cryptoCurrencyList: cryptoes)
                 
-                //tableview reloadData calistirmamiz lazim
-                //internetten indirecegimiz icin
+                //We need to trigger reloadData on the tableview
+                //For data we will download from the internet
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -41,7 +41,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //uygulamayi cokertmemek icin kod calisana kadar olan kodu 0 aliyoruz.
+        //To prevent the application from crashing, we set the code before it runs to 0
         return self.cryptoListViewModel == nil ? 0 : self.cryptoListViewModel.numberOfRowsInSection()
     }
     
