@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct CryptoCurrency : Decodable {
+    //Api den cektigimiz isim ne ise onlarin adlarini tanimliyoruz.
+    let currency : String
+    let price : String
+}
